@@ -47,9 +47,9 @@ public class HitokotoTask extends AsyncTask<HitokotoReq, Void, HitokotoVo> {
             // TODO: parse params
         }
 
-        URL url = null;
-        HttpURLConnection conn = null;
-        InputStream in = null;
+        URL url;
+        HttpURLConnection conn;
+        InputStream in;
         HitokotoVo result = null;
         try {
             url = new URL(request);
