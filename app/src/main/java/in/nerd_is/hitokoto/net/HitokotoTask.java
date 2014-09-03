@@ -15,6 +15,8 @@ import java.net.URL;
 import in.nerd_is.hitokoto.api.Constants;
 import in.nerd_is.hitokoto.api.HitokotoReq;
 import in.nerd_is.hitokoto.api.HitokotoVo;
+import in.nerd_is.hitokoto.provider.HitokotoProvider;
+import in.nerd_is.hitokoto.provider.HitokotoProviderTask;
 import in.nerd_is.hitokoto.utils.AndroidUtils;
 import in.nerd_is.hitokoto.utils.CommonUtils;
 
@@ -89,6 +91,7 @@ public class HitokotoTask extends AsyncTask<HitokotoReq, Void, HitokotoVo> {
     protected void onPostExecute(HitokotoVo hitokotoVo) {
         if (hitokotoVo != null) {
             mTvHitokoto.setText(hitokotoVo.hitokoto);
+            (new HitokotoProviderTask(mContext)).execute(hitokotoVo);
         }
 
         super.onPostExecute(hitokotoVo);
